@@ -58,14 +58,14 @@ public class TechJobs {
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
-//
 
                 // What is their search term?
                 System.out.println("\nSearch term:");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toLowerCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
+
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -126,7 +126,6 @@ public class TechJobs {
         if (someJobs.size() == 0) {
             System.out.println("No Results");
         }
-        // print every column
 
         for(HashMap<String, String> job : someJobs){
             System.out.println( "*****\n");
